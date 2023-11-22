@@ -1,3 +1,9 @@
 .data-input-textfield {
   margin: 2rem;
 }
+
+.MuiDataGrid-viewport,
+.MuiDataGrid-row,
+.MuiDataGrid-renderingZone {
+    max-height: fit-content !important;
+}
