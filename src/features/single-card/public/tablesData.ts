@@ -19,3 +19,9 @@ export const appearance = [
 export const player = ['Imię', 'Mistrz Gry', 'Kampania', 'Rok kampanii']
 export const expPoints = ['Obecne', 'Razem']
 export const movementInFight = ['Ruch/odwrót', 'Szarża', 'Bieg']
+export const simpleArmor = ['Nazwa', 'Typ pancerza', 'Punkty zbroi']
+export const gold = [
+  'Złote korony (zk)',
+  'Srebrne szylingi (s)',
+  'Mosiężne pensy (p)',
+]

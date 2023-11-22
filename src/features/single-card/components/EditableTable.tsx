@@ -148,7 +148,7 @@ export default function EditableTable(props: { columns: GridColDef[], initialRow
   return (
     <Box
       sx={{
-        height: 500,
+        height: 'fit-content',
         width: '100%',
         '& .actions': {
           color: 'text.secondary',

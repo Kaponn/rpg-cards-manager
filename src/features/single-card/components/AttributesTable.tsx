@@ -5,7 +5,7 @@ import { mainColumns, mainRows, secondaryColumns, secondaryRows } from "../publi
 export const AttributesTable = () => {
   return (
     <Container>
-      <h4>Zdolności</h4>
+      <h4>Cechy</h4>
       <DataGrid
         rows={mainRows}
         columns={mainColumns}

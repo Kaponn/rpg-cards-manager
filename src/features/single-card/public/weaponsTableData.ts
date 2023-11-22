@@ -15,7 +15,7 @@ export const weaponsRows: GridRowsProp = [
 ]
 
 export const weaponsColumns: GridColDef[] = [
-  { field: 'nazwa', headerName: 'Nazwa', width: 180, editable: true },
+  { field: 'nazwa', headerName: 'Nazwa', width: 150, editable: true },
   {
     field: 'obc',
     headerName: 'Obc.',
@@ -28,25 +28,25 @@ export const weaponsColumns: GridColDef[] = [
   {
     field: 'kategoria',
     headerName: 'Kategoria',
-    width: 180,
+    width: 120,
     editable: true,
   },
   {
     field: 'sila',
     headerName: 'Siła Broni',
-    width: 180,
+    width: 120,
     editable: true,
   },
   {
     field: 'zasieg',
     headerName: 'Zasięg',
-    width: 180,
+    width: 90,
     editable: true,
   },
   {
     field: 'przelad',
     headerName: 'Przeład.',
-    width: 180,
+    width: 100,
     editable: true,
   },
   {

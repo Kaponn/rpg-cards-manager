@@ -5,7 +5,10 @@ import EditableTable from './components/EditableTable';
 import { weaponsColumns, weaponsRows } from './public/weaponsTableData';
 import { abilitiesColumns, abilitiesRows } from './public/abilitiesTableData';
 import './styles/SingleCard.css'
-import { appearance, expPoints, heroInputs, movementInFight, player } from './public/tablesData';
+import { appearance, expPoints, gold, heroInputs, movementInFight, player, simpleArmor } from './public/tablesData';
+import { armorColumns, armorRows } from './public/armorTableData';
+import { skillsColumns, skillsRows } from './public/skillsTableData';
+import { equipmentColumns, equipmentRows } from './public/equipmentTableData';
 
 export const SingleCard = () => {
   return (
@@ -46,10 +49,33 @@ export const SingleCard = () => {
           <AttributesTable />
         </Grid>
         <Grid item>
+          <DataBox
+            header="Opancerzenie proste"
+            inputs={simpleArmor}
+            numOfColumns={1}
+            />
+        </Grid>
+        <Grid item>
+          <EditableTable columns={armorColumns} initialRows={armorRows} header={'Opancerzenie złożone'} />
+        </Grid>
+        <Grid item>
           <EditableTable columns={weaponsColumns} initialRows={weaponsRows} header={'Bronie'}/>
         </Grid>
         <Grid item>
           <EditableTable columns={abilitiesColumns} initialRows={abilitiesRows} header={'Zdolności'}/>
+        </Grid>
+        <Grid item>
+          <EditableTable columns={skillsColumns} initialRows={skillsRows} header={'Umiejętności'}/>
+        </Grid>
+        <Grid item>
+          <EditableTable columns={equipmentColumns} initialRows={equipmentRows} header={'Wyposażenie'}/>
+        </Grid>
+        <Grid item>
+          <DataBox
+            header="Pieniądze"
+            inputs={gold}
+            numOfColumns={1}
+            />
         </Grid>
       </Grid>
     </>
