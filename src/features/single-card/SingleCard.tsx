@@ -5,22 +5,9 @@ import EditableTable from './components/EditableTable';
 import { weaponsColumns, weaponsRows } from './public/weaponsTableData';
 import { abilitiesColumns, abilitiesRows } from './public/abilitiesTableData';
 import './styles/SingleCard.css'
+import { appearance, expPoints, heroInputs, movementInFight, player } from './public/tablesData';
 
 export const SingleCard = () => {
-  const heroInputs = ['Imię', 'Rasa', 'Poprzednia profesja', 'Obecna profesja'];
-  const appearance = [
-    'Wiek',
-    'Płeć',
-    'Kolor oczu',
-    'Kolor włosów',
-    'Waga',
-    'Wzrost',
-    'Znak gwiezdny',
-    'Rodzeństwo',
-    'Miejsce urodzenia',
-    'Znaki szczególne',
-  ];
-
   return (
     <>
       <Grid container spacing={2}>
@@ -35,13 +22,34 @@ export const SingleCard = () => {
           />
         </Grid>
         <Grid item>
+          <DataBox
+            header="Gracz"
+            inputs={player}
+            numOfColumns={1}
+            />
+        </Grid>
+        <Grid item>
+          <DataBox
+            header="Punkty Doświadczenia"
+            inputs={expPoints}
+            numOfColumns={1}
+            />
+        </Grid>
+        <Grid item>
+          <DataBox
+            header="Ruch w walce"
+            inputs={movementInFight}
+            numOfColumns={1}
+            />
+        </Grid>
+        <Grid item>
           <AttributesTable />
         </Grid>
         <Grid item>
-          <EditableTable columns={weaponsColumns} initialRows={weaponsRows}/>
+          <EditableTable columns={weaponsColumns} initialRows={weaponsRows} header={'Bronie'}/>
         </Grid>
         <Grid item>
-          <EditableTable columns={abilitiesColumns} initialRows={abilitiesRows}/>
+          <EditableTable columns={abilitiesColumns} initialRows={abilitiesRows} header={'Zdolności'}/>
         </Grid>
       </Grid>
     </>

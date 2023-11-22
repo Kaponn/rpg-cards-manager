@@ -53,7 +53,7 @@ function EditToolbar(props: EditToolbarProps) {
   );
 }
 
-export default function EditableTable(props: { columns: GridColDef[], initialRows: GridRowsProp }) {
+export default function EditableTable(props: { columns: GridColDef[], initialRows: GridRowsProp, header: String }) {
   const [rows, setRows] = React.useState(props.initialRows);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({});
   let finalColumns = props.columns
@@ -158,6 +158,7 @@ export default function EditableTable(props: { columns: GridColDef[], initialRow
         },
       }}
     >
+      <h4>{props.header}</h4>
       <DataGrid
         rows={rows}
         columns={finalColumns}
