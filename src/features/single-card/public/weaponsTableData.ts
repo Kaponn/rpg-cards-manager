@@ -1,23 +1,23 @@
-import { GridColDef, GridRowsProp } from '@mui/x-data-grid'
-import { randomId } from '@mui/x-data-grid-generator'
+import { GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { randomId } from '@mui/x-data-grid-generator';
 
 export const weaponsRows: GridRowsProp = [
   {
     id: randomId(),
-    nazwa: 'Kusza',
-    obc: 25,
-    kategoria: 'zwykła',
-    sila: '4',
-    zasieg: '30/60',
-    przelad: 'runda',
-    cechy: 'brak',
+    name: 'Kusza',
+    weight: 25,
+    category: 'zwykła',
+    power: '4',
+    range: '30/60',
+    reload: 'runda',
+    traits: 'brak',
   },
-]
+];
 
 export const weaponsColumns: GridColDef[] = [
-  { field: 'nazwa', headerName: 'Nazwa', width: 150, editable: true },
+  { field: 'name', headerName: 'Nazwa', width: 150, editable: true },
   {
-    field: 'obc',
+    field: 'weight',
     headerName: 'Obc.',
     type: 'number',
     width: 80,
@@ -26,33 +26,33 @@ export const weaponsColumns: GridColDef[] = [
     editable: true,
   },
   {
-    field: 'kategoria',
+    field: 'category',
     headerName: 'Kategoria',
     width: 120,
     editable: true,
   },
   {
-    field: 'sila',
+    field: 'power',
     headerName: 'Siła Broni',
     width: 120,
     editable: true,
   },
   {
-    field: 'zasieg',
+    field: 'range',
     headerName: 'Zasięg',
     width: 90,
     editable: true,
   },
   {
-    field: 'przelad',
+    field: 'reload',
     headerName: 'Przeład.',
     width: 100,
     editable: true,
   },
   {
-    field: 'cechy',
+    field: 'traits',
     headerName: 'Cechy Oręża',
     width: 180,
     editable: true,
   },
-]
+];

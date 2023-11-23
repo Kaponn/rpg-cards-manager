@@ -1,6 +1,11 @@
-import { Container } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid"
-import { mainColumns, mainRows, secondaryColumns, secondaryRows } from "../public/attributesTableData";
+import { Container } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+import {
+  mainColumns,
+  mainRows,
+  secondaryColumns,
+  secondaryRows,
+} from '../public/attributesTableData';
 
 export const AttributesTable = () => {
   return (
@@ -30,4 +35,4 @@ export const AttributesTable = () => {
       />
     </Container>
   );
-} 
+};

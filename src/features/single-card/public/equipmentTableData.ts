@@ -1,19 +1,19 @@
-import { GridColDef, GridRowsProp } from '@mui/x-data-grid'
-import { randomId } from '@mui/x-data-grid-generator'
+import { GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { randomId } from '@mui/x-data-grid-generator';
 
 export const equipmentRows: GridRowsProp = [
   {
     id: randomId(),
-    przedmiot: 'Kaganek',
-    obc: 20,
-    opis: 'Zwykła miseczka z olejkiem i zanurzonym w nim knotem',
+    item: 'Kaganek',
+    weight: 20,
+    desc: 'Zwykła miseczka z olejkiem i zanurzonym w nim knotem',
   },
-]
+];
 
 export const equipmentColumns: GridColDef[] = [
-  { field: 'przedmiot', headerName: 'Przedmiot', width: 120, editable: true },
+  { field: 'item', headerName: 'Przedmiot', width: 120, editable: true },
   {
-    field: 'obc',
+    field: 'weight',
     headerName: 'Obc.',
     width: 80,
     align: 'left',
@@ -21,5 +21,5 @@ export const equipmentColumns: GridColDef[] = [
     type: 'number',
     editable: true,
   },
-  { field: 'opis', headerName: 'Opis', width: 220, editable: true },
-]
+  { field: 'desc', headerName: 'Opis', width: 220, editable: true },
+];

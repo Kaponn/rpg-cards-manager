@@ -1,26 +1,26 @@
-import { GridColDef, GridRowsProp } from '@mui/x-data-grid'
-import { randomId } from '@mui/x-data-grid-generator'
+import { GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { randomId } from '@mui/x-data-grid-generator';
 
 export const skillsRows: GridRowsProp = [
   {
     id: randomId(),
-    umiejetnosc: 'Spostrzegawczość',
-    wykupione: true,
+    skill: 'Spostrzegawczość',
+    bought: true,
     upgrade: false,
     secondUpgrade: false,
-    pokrewne: '',
+    related: '',
   },
-]
+];
 
 export const skillsColumns: GridColDef[] = [
   {
-    field: 'umiejetnosc',
+    field: 'skill',
     headerName: 'Umiejętność',
     width: 150,
     editable: true,
   },
   {
-    field: 'wykupione',
+    field: 'bought',
     headerName: 'Wykupione',
     width: 90,
     type: 'boolean',
@@ -41,9 +41,9 @@ export const skillsColumns: GridColDef[] = [
     editable: true,
   },
   {
-    field: 'pokrewne',
+    field: 'related',
     headerName: 'Zdolności pokrewne',
     width: 150,
     editable: true,
   },
-]
+];
