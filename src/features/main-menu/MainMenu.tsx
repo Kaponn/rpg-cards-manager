@@ -17,7 +17,11 @@ export const MainMenu = () => {
       }}
     >
       <ButtonGroup variant="text">
-        <Button fullWidth style={{ padding: '5rem' }}>
+        <Button
+          fullWidth
+          style={{ padding: '5rem' }}
+          onClick={() => navigate('../hero-create')}
+        >
           Stwórz postać
         </Button>
         <Button
