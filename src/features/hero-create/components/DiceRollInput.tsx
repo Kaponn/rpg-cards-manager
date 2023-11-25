@@ -8,7 +8,7 @@ export const DiceRollInput = (props: {
   numOfRolls: number;
   sendDataToParent: Function;
 }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('0');
 
   useEffect(() => {
     props.sendDataToParent(value);
@@ -17,7 +17,6 @@ export const DiceRollInput = (props: {
   const handleClick = () => {
     if (props.numOfRolls === 1) {
       setValue(Math.floor(Math.random() * props.diceValue + 1).toString());
-      // props.sendDataToParent(value);
       return;
     }
 
@@ -32,14 +31,12 @@ export const DiceRollInput = (props: {
     });
 
     setValue(sum.toString());
-    // props.sendDataToParent(value);
   };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setValue(e.target.value);
-    // props.sendDataToParent(value);
   };
 
   return (

@@ -1,141 +1,443 @@
+import { IntRange } from './IntRange'
+import { Profession } from './Profession'
+
+const Acolyte = new Profession('Akolita', [
+  new IntRange(1, 2),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Outlaw = new Profession('Banita', [
+  new IntRange(3, 4),
+  new IntRange(1, 5),
+  new IntRange(1, 3),
+  new IntRange(1, 3),
+])
+const Berserk = new Profession('Berseker z Norski', [
+  new IntRange(5, 5),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Paesant = new Profession('Chłop', [
+  new IntRange(6, 7),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const CampMan = new Profession('Ciura obozowa', [
+  new IntRange(8, 9),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(4, 5),
+])
+const CircusArtist = new Profession('Cyrkowiec', [
+  new IntRange(10, 11),
+  new IntRange(6, 10),
+  new IntRange(4, 6),
+  new IntRange(6, 8),
+])
+const Barber = new Profession('Cyrulik', [
+  new IntRange(12, 12),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Fanatic = new Profession('Fanatyk', [
+  new IntRange(13, 14),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Bargeman = new Profession('Flisak', [
+  new IntRange(15, 16),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Squire = new Profession('Giermek', [
+  new IntRange(17, 18),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Gladiator = new Profession('Gladiator', [
+  new IntRange(19, 20),
+  new IntRange(-1, -1),
+  new IntRange(7, 11),
+  new IntRange(-1, -1),
+])
+const Runner = new Profession('Goniec', [
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(12, 16),
+  new IntRange(-1, -1),
+])
+const Miner = new Profession('Górnik', [
+  new IntRange(21, 22),
+  new IntRange(-1, -1),
+  new IntRange(17, 22),
+  new IntRange(-1, -1),
+])
+const Pellar = new Profession('Guślarz', [
+  new IntRange(23, 23),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const GraveRobber = new Profession('Hiena Cmentarna', [
+  new IntRange(24, 25),
+  new IntRange(-1, -1),
+  new IntRange(23, 25),
+  new IntRange(10, 14),
+])
+const Fiddler = new Profession('Kanciarz', [
+  new IntRange(26, 27),
+  new IntRange(11, 16),
+  new IntRange(-1, -1),
+  new IntRange(15, 20),
+])
+const KislevCossack = new Profession('Kozak Kislevski', [
+  new IntRange(28, 28),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Woodman = new Profession('Leśnik', [
+  new IntRange(29, 30),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Hunter = new Profession('Łowca', [
+  new IntRange(31, 32),
+  new IntRange(17, 24),
+  new IntRange(26, 29),
+  new IntRange(21, 25),
+])
+const TreasureHunter = new Profession('Łowca Nagród', [
+  new IntRange(33, 34),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(26, 27),
+])
+const Townsman = new Profession('Mieszczanin', [
+  new IntRange(35, 36),
+  new IntRange(-1, -1),
+  new IntRange(30, 33),
+  new IntRange(28, 29),
+])
+const TollKeeper = new Profession('Mytnik', [
+  new IntRange(37, 38),
+  new IntRange(-1, -1),
+  new IntRange(34, 36),
+  new IntRange(30, 31),
+])
+const Mercenary = new Profession('Najemnik', [
+  new IntRange(39, 40),
+  new IntRange(25, 29),
+  new IntRange(37, 42),
+  new IntRange(32, 35),
+])
+const Enlistee = new Profession('Ochotnik', [
+  new IntRange(41, 42),
+  new IntRange(-1, -1),
+  new IntRange(43, 46),
+  new IntRange(36, 40),
+])
+const SecurityGuard = new Profession('Ochroniarz', [
+  new IntRange(43, 44),
+  new IntRange(-1, -1),
+  new IntRange(47, 50),
+  new IntRange(-1, -1),
+])
+const Bully = new Profession('Oprych', [
+  new IntRange(45, 46),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Page = new Profession('Paź', [
+  new IntRange(47, 48),
+  new IntRange(30, 31),
+  new IntRange(-1, -1),
+  new IntRange(41, 42),
+])
+const Inciter = new Profession('Podżegacz', [
+  new IntRange(49, 50),
+  new IntRange(-1, -1),
+  new IntRange(51, 52),
+  new IntRange(43, 45),
+])
+const CorpseHijacker = new Profession('Porywacz Zwłok', [
+  new IntRange(51, 52),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(46, 48),
+])
+const Messenger = new Profession('Posłaniec', [
+  new IntRange(53, 54),
+  new IntRange(32, 37),
+  new IntRange(-1, -1),
+  new IntRange(49, 53),
+])
+const Smuggler = new Profession('Przemytnik', [
+  new IntRange(55, 56),
+  new IntRange(-1, -1),
+  new IntRange(53, 55),
+  new IntRange(54, 56),
+])
+const Lookout = new Profession('Przepatrywacz', [
+  new IntRange(57, 58),
+  new IntRange(38, 43),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Carrier = new Profession('Przewoźnik', [
+  new IntRange(59, 59),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(57, 57),
+])
+const Fisherman = new Profession('Rybak', [
+  new IntRange(60, 61),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(58, 58),
+])
+const HouseProponent = new Profession('Rzecznik Rodu', [
+  new IntRange(-1, -1),
+  new IntRange(44, 50),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Craftsman = new Profession('Rzemieślnik', [
+  new IntRange(62, 63),
+  new IntRange(51, 57),
+  new IntRange(56, 59),
+  new IntRange(59, 63),
+])
+const Cutthroat = new Profession('Rzezimieszek', [
+  new IntRange(64, 65),
+  new IntRange(-1, -1),
+  new IntRange(60, 63),
+  new IntRange(-1, -1),
+])
+const Scribe = new Profession('Skryba', [
+  new IntRange(66, 67),
+  new IntRange(58, 63),
+  new IntRange(64, 65),
+  new IntRange(-1, -1),
+])
+const Servant = new Profession('Sługa', [
+  new IntRange(68, 69),
+  new IntRange(-1, -1),
+  new IntRange(66, 67),
+  new IntRange(64, 68),
+])
+const Guard = new Profession('Strażnik', [
+  new IntRange(70, 71),
+  new IntRange(-1, -1),
+  new IntRange(68, 69),
+  new IntRange(69, 72),
+])
+const RoadGuard = new Profession('Strażnik Dróg', [
+  new IntRange(72, 73),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(73, 74),
+])
+const FieldGuard = new Profession('Leśnik', [
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(75, 78),
+])
+const JailGuard = new Profession('Strażnik więzienny', [
+  new IntRange(74, 74),
+  new IntRange(-1, -1),
+  new IntRange(70, 73),
+  new IntRange(-1, -1),
+])
+const RatCatcher = new Profession('Szczurołap', [
+  new IntRange(75, 76),
+  new IntRange(-1, -1),
+  new IntRange(74, 77),
+  new IntRange(79, 82),
+])
+const EstalFencer = new Profession('Szermierz Estalijski', [
+  new IntRange(77, 77),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Noble = new Profession('Szlachcic', [
+  new IntRange(78, 79),
+  new IntRange(-1, -1),
+  new IntRange(78, 79),
+  new IntRange(-1, -1),
+])
+const Garbageman = new Profession('Śmieciarz', [
+  new IntRange(80, 81),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(83, 83),
+])
+const ShieldBearer = new Profession('Tarczownik', [
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(80, 83),
+  new IntRange(-1, -1),
+])
+const SorcererApprentice = new Profession('Uczeń Czarodzieja', [
+  new IntRange(82, 83),
+  new IntRange(64, 70),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const CoalMan = new Profession('Węglarz', [
+  new IntRange(84, 85),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(84, 86),
+])
+const RollingStone = new Profession('Włóczykij', [
+  new IntRange(86, 87),
+  new IntRange(71, 77),
+  new IntRange(-1, -1),
+  new IntRange(87, 90),
+])
+const ClanWarrior = new Profession('Wojownik Klanowy', [
+  new IntRange(-1, -1),
+  new IntRange(78, 84),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Wagoner = new Profession('Woźnica', [
+  new IntRange(88, 89),
+  new IntRange(-1, -1),
+  new IntRange(84, 85),
+  new IntRange(-1, -1),
+])
+const TrollKiller = new Profession('Zabójca Trolli', [
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(86, 89),
+  new IntRange(-1, -1),
+])
+const Administrator = new Profession('Zarządca', [
+  new IntRange(90, 90),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+  new IntRange(-1, -1),
+])
+const Thief = new Profession('Złodziej', [
+  new IntRange(91, 92),
+  new IntRange(85, 90),
+  new IntRange(90, 92),
+  new IntRange(91, 96),
+])
+const Student = new Profession('Żak', [
+  new IntRange(93, 94),
+  new IntRange(91, 95),
+  new IntRange(93, 94),
+  new IntRange(97, 98),
+])
+const Sailor = new Profession('Żeglarz', [
+  new IntRange(95, 96),
+  new IntRange(96, 100),
+  new IntRange(95, 95),
+  new IntRange(-1, -1),
+])
+const Soldier = new Profession('Żołnierz', [
+  new IntRange(97, 98),
+  new IntRange(-1, -1),
+  new IntRange(96, 99),
+  new IntRange(99, 100),
+])
+const SeaSoldier = new Profession('Żołnierz Okrętowy', [
+  new IntRange(99, 100),
+  new IntRange(-1, -1),
+  new IntRange(100, 100),
+  new IntRange(-1, -1),
+])
+
+const professions = [
+  Acolyte,
+  Outlaw,
+  Berserk,
+  Paesant,
+  CampMan,
+  CircusArtist,
+  Barber,
+  Fanatic,
+  Bargeman,
+  Squire,
+  Gladiator,
+  Runner,
+  Miner,
+  Pellar,
+  GraveRobber,
+  Fiddler,
+  KislevCossack,
+  Woodman,
+  Hunter,
+  TreasureHunter,
+  Townsman,
+  TollKeeper,
+  Mercenary,
+  Enlistee,
+  SecurityGuard,
+  Bully,
+  Page,
+  Inciter,
+  CorpseHijacker,
+  Messenger,
+  Smuggler,
+  Lookout,
+  Carrier,
+  Fisherman,
+  HouseProponent,
+  Craftsman,
+  Cutthroat,
+  Scribe,
+  Servant,
+  Guard,
+  RoadGuard,
+  FieldGuard,
+  JailGuard,
+  RatCatcher,
+  EstalFencer,
+  Noble,
+  Garbageman,
+  ShieldBearer,
+  SorcererApprentice,
+  CoalMan,
+  RollingStone,
+  ClanWarrior,
+  Wagoner,
+  TrollKiller,
+  Administrator,
+  Thief,
+  Student,
+  Sailor,
+  Soldier,
+  SeaSoldier,
+]
+
 export const calculateProfession = (race: string, roll: string) => {
-  const rollToInt = parseInt(roll);
+  const rollToInt = parseInt(roll)
+  let name: string = 'Niepoprawny rzut'
 
-  switch(race) {
-    case 'human':
-      switch(rollToInt) {
-        case
+  professions.forEach((profession) => {
+    for (let [mappedRace, range] of profession.raceToRange) {
+      if (mappedRace === race) {
+        if (range.isInRange(rollToInt)) {
+          name = profession.name
+        }
       }
-  }
-};
+    }
+  })
 
-const calculateHuman = (roll: number) => {
-  switch (roll) {
-    case 1:
-    case 2:
-      return 'Akolita'
-    case 3:
-    case 4:
-      return 'Banita'
-    case 5:
-      return 'Berseker z Norski'
-    case 6:
-    case 7:
-      return 'Chłop'
-    case 8:
-    case 9:
-      return 'Ciura obozowa'
-    case 10:
-    case 11:
-      return 'Cyrkowiec'
-    case 12:
-      return 'Cyrulik'
-    case 13:
-    case 14:
-      return 'Fanatyk'
-    case 15:
-    case 16:
-      return 'Flisak'
-    case 17:
-    case 18:
-      return 'Giermek'
-    case 19:
-    case 20:
-      return 'Gladiator'
-    case 21:
-    case 22:
-      return 'Górnik'
-    case 23:
-      return 'Guślarz'
-    case 24:
-    case 25:
-      return 'Hiena cmentarna'
-    case 26:
-    case 27:
-      return 'Kanciarz'
-    case 28:
-      return 'Kozak kislevski'
-    case 29:
-    case 30:
-      return 'Leśnik'
-    case 31:
-    case 32:
-      return 'Łowca'
-    case 33:
-    case 34:
-      return 'Łowca nagród'
-    case 35:
-    case 36:
-      return 'Mieszczanin'
-    case 37:
-    case 38:
-      return 'Mytnik'
-    case 39:
-    case 40:
-      return 'Najemnik'
-    case 41:
-    case 42:
-      return 'Ochotnik'
-    case 43:
-    case 44:
-      return 'Ochroniarz'
-    case 45:
-    case 46:
-      return 'Oprych'
-    case 47:
-    case 48:
-      return 'Paź'
-    case 49:
-    case 50:
-    case 51:
-    case 52:
-    case 53:
-    case 54:
-    case 55:
-    case 56:
-    case 57:
-    case 58:
-    case 59:
-    case 60:
-    case 61:
-    case 62:
-    case 63:
-    case 64:
-    case 65:
-    case 66:
-    case 67:
-    case 68:
-    case 69:
-    case 70:
-    case 71:
-    case 72:
-    case 73:
-    case 74:
-    case 75:
-    case 76:
-    case 77:
-    case 78:
-    case 79:
-    case 80:
-    case 81:
-    case 82:
-    case 83:
-    case 84:
-    case 85:
-    case 86:
-    case 87:
-    case 88:
-    case 89:
-    case 90:
-    case 91:
-    case 92:
-    case 93:
-    case 94:
-    case 95:
-    case 96:
-    case 97:
-    case 98:
-    case 99:
-    case 100:
-  }
+  return name
 }

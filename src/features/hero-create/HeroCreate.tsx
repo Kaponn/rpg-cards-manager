@@ -107,7 +107,7 @@ export const HeroCreate = () => {
             />
           )}
         </Grid>
-        <ProfessionSelect />
+        <ProfessionSelect race={race} />
       </FormControl>
     </Box>
   );
