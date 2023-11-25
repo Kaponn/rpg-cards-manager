@@ -425,25 +425,6 @@ const professions = [
   SeaSoldier,
 ]
 
-// export const calculateProfession = (race: string, roll: string) => {
-//   const rollToInt = parseInt(roll)
-//   // let name: string = 'Niepoprawny rzut'
-
-//   professions.forEach((profession) => {
-//     for (let [mappedRace, range] of profession.raceToRange) {
-//       if (mappedRace === race) {
-//         if (range.isInRange(rollToInt)) {
-//           // name = profession.name
-//           return profession.name
-//         }
-//       }
-//     }
-//   })
-
-//   // return name
-//   return 'Niepoprawny rzut'
-// }
-
 export const calculateProfession = (race: string, roll: string) => {
   const rollToInt = parseInt(roll)
 

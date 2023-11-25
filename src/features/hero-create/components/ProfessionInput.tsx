@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { DiceRollInput } from './DiceRollInput';
 import { Button } from '@mui/material';
 import { calculateProfession } from '../helpers/heroCreateHelpers';
