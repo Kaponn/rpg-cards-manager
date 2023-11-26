@@ -1,7 +1,12 @@
 import { Grid } from "@mui/material"
 import { DiceRollInput } from "./DiceRollInput"
 
-export const AttributesRolls = (props: { race: string; sendDataToParent: Function; setDiceResults: React.Dispatch<React.SetStateAction<{ [key: string]: string }>> }) => {
+export const AttributesRolls = (props: { 
+  race: string;
+  sendDataToParent: Function; 
+  setDiceResults: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>
+  validationTable: boolean[]
+  }) => {
 
   return (
     <div>
@@ -13,6 +18,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='ranged'
@@ -20,6 +26,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='sturdiness'
@@ -27,6 +34,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='endurance'
@@ -34,6 +42,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='agility'
@@ -41,6 +50,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='intelligence'
@@ -48,6 +58,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='willpower'
@@ -55,6 +66,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='refinement'
@@ -62,6 +74,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={2}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='wounds'
@@ -69,6 +82,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='fate'
@@ -76,6 +90,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
             diceValue={10}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           {(props.race === 'human' || props.race === 'halfling') && (
             <DiceRollInput
@@ -84,6 +99,7 @@ export const AttributesRolls = (props: { race: string; sendDataToParent: Functio
               diceValue={100}
               numOfRolls={1}
               setDiceResults={props.setDiceResults}
+              validationTable={props.validationTable}
             />
           )}
         </Grid>

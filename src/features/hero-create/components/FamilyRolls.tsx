@@ -1,7 +1,10 @@
 import { Grid } from "@mui/material"
 import { DiceRollInput } from "./DiceRollInput"
 
-export const FamilyRolls = (props: { sendDataToParent: Function, setDiceResults: React.Dispatch<React.SetStateAction<{ [key: string]: string }>> }) => {
+export const FamilyRolls = (props: { 
+  sendDataToParent: Function, 
+  setDiceResults: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>
+  validationTable: boolean[] }) => {
   return (
     <div>
       <h4>Pochodzenie i rodzina</h4>
@@ -12,6 +15,7 @@ export const FamilyRolls = (props: { sendDataToParent: Function, setDiceResults:
             diceValue={10}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='starSign'
@@ -19,6 +23,7 @@ export const FamilyRolls = (props: { sendDataToParent: Function, setDiceResults:
             diceValue={100}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='age'
@@ -26,6 +31,7 @@ export const FamilyRolls = (props: { sendDataToParent: Function, setDiceResults:
             diceValue={100}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='birthPlace'
@@ -33,6 +39,7 @@ export const FamilyRolls = (props: { sendDataToParent: Function, setDiceResults:
             diceValue={100}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
           <DiceRollInput
             id='name'
@@ -40,6 +47,7 @@ export const FamilyRolls = (props: { sendDataToParent: Function, setDiceResults:
             diceValue={100}
             numOfRolls={1}
             setDiceResults={props.setDiceResults}
+            validationTable={props.validationTable}
           />
         </Grid>
     </div>

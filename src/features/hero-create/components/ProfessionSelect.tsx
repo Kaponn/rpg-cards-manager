@@ -2,11 +2,13 @@ import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { ProfessionInput } from './ProfessionInput';
 
-export const ProfessionSelect = (props: { race: string, updateSelectedProfession: (profession: string) => void }) => {
+export const ProfessionSelect = (props: { race: string, updateSelectedProfession: (profession: string) => void, setIsAnyProfessionActive: (isActive: boolean) => void }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleButtonClick = (index: number) => {
     setActiveIndex(index);
+
+    props.setIsAnyProfessionActive(true);
 
     const professionContent = document.getElementById(`rzut-${index}-button`)?.textContent || '';
   

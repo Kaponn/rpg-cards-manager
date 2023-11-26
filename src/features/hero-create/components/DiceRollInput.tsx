@@ -1,4 +1,4 @@
-import { Grid, IconButton, TextField } from '@mui/material';
+import { Box, Grid, IconButton, TextField } from '@mui/material';
 import CasinoIcon from '@mui/icons-material/Casino';
 import { ChangeEvent, useEffect, useState } from 'react';
 
@@ -8,15 +8,19 @@ export const DiceRollInput = (props: {
   diceValue: number;
   numOfRolls: number;
   setDiceResults: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+  validationTable: boolean[]
 }) => {
   const [value, setValue] = useState('0');
+  const [isInputValid, setIsInputValid] = useState(false);
 
   useEffect(() => {
+    setIsInputValid(parseInt(value) >= 1 && parseInt(value) <= (props.diceValue * props.numOfRolls) ? true : false)
+    props.validationTable.push(isInputValid)
     props.setDiceResults((prevResults) => ({
       ...prevResults,
       [props.id]: value,
     }));
-  }, [value, props]);
+  }, [value, props, isInputValid]);
 
   const handleClick = () => {
     if (props.numOfRolls === 1) {
@@ -44,20 +48,22 @@ export const DiceRollInput = (props: {
   };
 
   return (
-    <Grid item>
-      <TextField
-        label={props.label}
-        value={value}
-        onChange={(e) => handleChange(e)}
-        variant="outlined"
-        type="number"
-        sx={{
-          margin: '0.3rem',
-        }}
-      />
-      <IconButton onClick={() => handleClick()}>
-        <CasinoIcon fontSize="large" />
-      </IconButton>
-    </Grid>
+    <Box>
+      <Grid item>
+        <TextField
+          label={props.label}
+          value={value}
+          onChange={(e) => handleChange(e)}
+          variant="outlined"
+          type="number"
+          sx={{
+            margin: '0.3rem',
+          }}
+          />
+        <IconButton onClick={() => handleClick()}>
+          <CasinoIcon fontSize="large" />
+        </IconButton>
+      </Grid>
+    </Box>
   );
 };
