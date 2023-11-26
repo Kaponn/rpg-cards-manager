@@ -3,15 +3,19 @@ import CasinoIcon from '@mui/icons-material/Casino';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export const DiceRollInput = (props: {
-  label: String;
+  id: string;
+  label: string;
   diceValue: number;
   numOfRolls: number;
-  sendDataToParent: Function;
+  setDiceResults: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
 }) => {
   const [value, setValue] = useState('0');
 
   useEffect(() => {
-    props.sendDataToParent(value);
+    props.setDiceResults((prevResults) => ({
+      ...prevResults,
+      [props.id]: value,
+    }));
   }, [value, props]);
 
   const handleClick = () => {

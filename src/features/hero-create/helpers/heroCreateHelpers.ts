@@ -426,6 +426,8 @@ const professions = [
 ]
 
 export const calculateProfession = (race: string, roll: string) => {
+  if (race === '') return 'Wybierz rasę'
+
   const rollToInt = parseInt(roll)
 
   for (const profession of professions) {

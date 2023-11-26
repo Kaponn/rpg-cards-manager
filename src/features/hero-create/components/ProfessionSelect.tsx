@@ -1,14 +1,39 @@
 import { Grid } from '@mui/material';
+import { useState } from 'react';
 import { ProfessionInput } from './ProfessionInput';
 
-export const ProfessionSelect = (props: { race: string }) => {
+export const ProfessionSelect = (props: { race: string, updateSelectedProfession: (profession: string) => void }) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleButtonClick = (index: number) => {
+    setActiveIndex(index);
+
+    const professionContent = document.getElementById(`rzut-${index}-button`)?.textContent || '';
+  
+    updateProfession(professionContent);
+  };
+
+  const updateProfession = (profession: string) => {
+    props.updateSelectedProfession(profession);
+  };
+
   return (
     <div>
       <h4>Wybór profesji</h4>
-      <Grid container>
-        <ProfessionInput label="Rzut 1" race={props.race} />
-        <ProfessionInput label="Rzut 2" race={props.race} />
-        <ProfessionInput label="Rzut 3" race={props.race} />
+      <Grid container alignItems="center" justifyContent="center">
+        {[1, 2, 3].map((index) => (
+          <ProfessionInput
+            index={index}
+            key={index}
+            label={`Rzut ${index}`}
+            race={props.race}
+            isActive={activeIndex === index}
+            onClick={() => {
+              handleButtonClick(index);
+            }}
+            updateProfession={updateProfession}
+          />
+        ))}
       </Grid>
     </div>
   );
