@@ -8,7 +8,7 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProfessionSelect } from './components/ProfessionSelect';
 import { AttributesRolls } from './components/AttributesRolls';
 import { PhysicalAttributesRolls } from './components/PhysicalAttributesRolls';
@@ -16,7 +16,7 @@ import { FamilyRolls } from './components/FamilyRolls';
 
 export const HeroCreate = () => {
   const [race, setRace] = useState('');
-  const [selectedProfession, setSelectedProfession] = useState<string>('');
+  const [selectedProfession, setSelectedProfession] = useState('');
   const [diceResults, setDiceResults] = useState<{ [key: string]: string }>({});
   const [isAnyProfessionActive, setIsAnyProfessionActive] = useState(false);
   const [areInputsValid, setAreInputsValid] = useState(true);

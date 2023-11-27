@@ -1,11 +1,13 @@
 import { IntRange } from './IntRange'
 
 export class Profession {
+  id: string
   name: string
   ranges: IntRange[]
   raceToRange: Map<string, IntRange>
 
-  constructor(name: string, ranges: IntRange[]) {
+  constructor(id: string, name: string, ranges: IntRange[]) {
+    this.id = id
     this.name = name
     this.ranges = ranges
     this.raceToRange = new Map<string, IntRange>([])

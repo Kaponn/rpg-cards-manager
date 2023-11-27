@@ -3,7 +3,14 @@ import { ChangeEvent, useEffect, useState } from "react"
 import CasinoIcon from '@mui/icons-material/Casino';
 import { calculateProfession } from "../helpers/heroCreateHelpers";
 
-export const ProfessionInput = (props: { index: number, label: string, race: string, isActive: boolean, onClick: () => void, updateProfession: (profession: string) => void }) => {
+export const ProfessionInput = (props: { 
+  index: number, 
+  label: string, 
+  race: string, 
+  isActive: boolean, 
+  onClick: () => void,
+  professionsArray: string[]
+  }) => {
   const [value, setValue] = useState('0');
   const [profession, setProfession] = useState('Wybierz rasę');
 
@@ -13,8 +20,17 @@ export const ProfessionInput = (props: { index: number, label: string, race: str
   }
 
   useEffect(() => {
+    if (props.race === '') setProfession('Wybierz rasę')
+    if (props.race !== '' && (parseInt(value) < 1 || parseInt(value) > 100)) {
+      setProfession('Niepoprawny rzut')
+    }
     const professionResult = calculateProfession(props.race, value);
-    setProfession(professionResult);
+    if (typeof professionResult === 'object' && professionResult !== null) {
+      setProfession(professionResult.name);
+      if (props.professionsArray.length < 3) {
+        props.professionsArray.push(professionResult.id)
+      }
+    }
   }, [props, value])
 
   const handleChange = (

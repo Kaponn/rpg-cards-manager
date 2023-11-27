@@ -1,22 +1,22 @@
 import { Grid } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProfessionInput } from './ProfessionInput';
 
 export const ProfessionSelect = (props: { race: string, updateSelectedProfession: (profession: string) => void, setIsAnyProfessionActive: (isActive: boolean) => void }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  
+  const professionsArray: string[] = []
+
+  useEffect(() => {
+    setActiveIndex(null)
+  }, [props.race])
 
   const handleButtonClick = (index: number) => {
     setActiveIndex(index);
 
     props.setIsAnyProfessionActive(true);
-
-    const professionContent = document.getElementById(`rzut-${index}-button`)?.textContent || '';
   
-    updateProfession(professionContent);
-  };
-
-  const updateProfession = (profession: string) => {
-    props.updateSelectedProfession(profession);
+    props.updateSelectedProfession(professionsArray[index - 1]);
   };
 
   return (
@@ -33,7 +33,7 @@ export const ProfessionSelect = (props: { race: string, updateSelectedProfession
             onClick={() => {
               handleButtonClick(index);
             }}
-            updateProfession={updateProfession}
+            professionsArray={professionsArray}
           />
         ))}
       </Grid>
