@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 
-export const DataInput = (props: { label: String }) => {
+export const DataInput = (props: { label: string; value: string }) => {
   return (
     <div>
       <TextField
@@ -9,6 +9,7 @@ export const DataInput = (props: { label: String }) => {
         sx={{
           margin: '0.3rem',
         }}
+        defaultValue={props.value}
       />
     </div>
   );

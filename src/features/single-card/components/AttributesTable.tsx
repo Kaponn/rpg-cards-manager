@@ -1,18 +1,16 @@
 import { Container } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
-import {
-  mainColumns,
-  mainRows,
-  secondaryColumns,
-  secondaryRows,
-} from '../public/attributesTableData';
+import { DataGrid, GridRowsProp } from '@mui/x-data-grid';
+import { mainColumns, secondaryColumns } from '../public/attributesTableData';
 
-export const AttributesTable = () => {
+export const AttributesTable = (props: {
+  mainRows: GridRowsProp;
+  secondaryRows: GridRowsProp;
+}) => {
   return (
     <Container>
       <h4>Cechy</h4>
       <DataGrid
-        rows={mainRows}
+        rows={props.mainRows}
         columns={mainColumns}
         rowSelection={false}
         disableColumnFilter
@@ -23,7 +21,7 @@ export const AttributesTable = () => {
         showColumnVerticalBorder
       />
       <DataGrid
-        rows={secondaryRows}
+        rows={props.secondaryRows}
         columns={secondaryColumns}
         rowSelection={false}
         disableColumnFilter

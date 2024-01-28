@@ -27,7 +27,7 @@ export const MainMenu = () => {
         <Button
           fullWidth
           style={{ padding: '5rem' }}
-          onClick={() => navigate('../single-card')}
+          onClick={() => navigate('../all-cards')}
         >
           Zapisane karty
         </Button>

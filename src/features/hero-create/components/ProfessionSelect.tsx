@@ -2,20 +2,24 @@ import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { ProfessionInput } from './ProfessionInput';
 
-export const ProfessionSelect = (props: { race: string, updateSelectedProfession: (profession: string) => void, setIsAnyProfessionActive: (isActive: boolean) => void }) => {
+export const ProfessionSelect = (props: {
+  race: string;
+  updateSelectedProfession: (profession: string) => void;
+  setIsAnyProfessionActive: (isActive: boolean) => void;
+}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  
-  const professionsArray: string[] = []
+
+  const professionsArray: string[] = [];
 
   useEffect(() => {
-    setActiveIndex(null)
-  }, [props.race])
+    setActiveIndex(null);
+  }, [props.race]);
 
   const handleButtonClick = (index: number) => {
     setActiveIndex(index);
 
     props.setIsAnyProfessionActive(true);
-  
+
     props.updateSelectedProfession(professionsArray[index - 1]);
   };
 
