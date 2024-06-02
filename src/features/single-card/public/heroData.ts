@@ -10,22 +10,13 @@ export type HeroData = {
     | { label?: string; value?: string }
     | { label?: string; value?: number }
   )[];
-  expPoints?: (
-    | { label?: string; value?: string }
-    | { label?: string; value?: number }
-  )[];
-  fightMovement?: (
-    | { label?: string; value?: string }
-    | { label?: string; value?: number }
-  )[];
+  expPoints?: { label?: string; value?: number }[];
+  fightMovement?: { label?: string; value?: number }[];
   simpleArmor?: (
     | { label?: string; value?: string }
     | { label?: string; value?: number }
   )[];
-  gold?: (
-    | { label?: string; value?: string }
-    | { label?: string; value?: number }
-  )[];
+  gold?: { label?: string; value?: number }[];
   abilities?: { ability?: string; desc?: string }[];
   advancedArmor?: {
     type?: string;
@@ -75,102 +66,6 @@ export type HeroData = {
     fate?: number;
   }[];
 };
-
-// export type HeroData = {
-//   id: number;
-//   heroInfo: {
-//     id: number;
-//     name: string;
-//     race: string;
-//     previousProfession: string;
-//     currentProfession: string;
-//   };
-//   heroBio: {
-//     id: number;
-//     age: number;
-//     gender: string;
-//     eyeColor: string;
-//     hairColor: string;
-//     weight: number;
-//     height: number;
-//     starSign: string | null;
-//     siblings: number;
-//     birthPlace: string;
-//     specialSigns: string;
-//   };
-//   player: {
-//     id: number;
-//     name: string;
-//     gameMaster: string;
-//     campaign: string;
-//     campaignYear: number;
-//   };
-//   expPoints: {
-//     id: number;
-//     currentPoints: number;
-//     allPoints: number;
-//   };
-//   fightMovement: {
-//     id: number;
-//     movement: number;
-//     charge: number;
-//     run: number;
-//   };
-//   simpleArmor: {
-//     id: number;
-//     name: string;
-//     type: string;
-//     healthPoints: number;
-//   };
-//   gold: {
-//     id: number;
-//     gold: number;
-//     silver: number;
-//     copper: number;
-//   };
-//   attributes: {
-//     id: number;
-//     starterMain: number;
-//     devMain: number;
-//     currentMain: number;
-//   }[];
-//   advancedArmor: {
-//     id: number;
-//     type: string;
-//     weight: number;
-//     location: string;
-//     healthPoints: number;
-//   }[];
-//   weapons: {
-//     id: number;
-//     name: string;
-//     weight: number;
-//     category: string;
-//     strength: number;
-//     range: number;
-//     reload: string;
-//     attributes: string;
-//   }[];
-//   abilities: {
-//     id: number;
-//     ability: string;
-//     desc: string;
-//   }[];
-//   skills: {
-//     id: number;
-//     skill: string;
-//     bought: boolean;
-//     plus10: boolean;
-//     plus20: boolean;
-//     relatedAbilities: string | null;
-//   }[];
-//   equipment: {
-//     id: number;
-//     item: string;
-//     weight: number;
-//     description: string;
-//   }[];
-// };
 
 export const getHeroData = (hero: Hero) => {
   const heroInfo = [
@@ -340,84 +235,6 @@ export const getHeroData = (hero: Hero) => {
     },
   ];
 
-  // const mainAttributes = [
-  //   {
-  //     id: 1,
-  //     header: 'Początkowa',
-  //     melee: 0,
-  //     ranged: 0,
-  //     sturdiness: 0,
-  //     endurance: 0,
-  //     agility: 0,
-  //     intelligence: 0,
-  //     willPower: 0,
-  //     refinement: 0,
-  //   },
-  //   {
-  //     id: 2,
-  //     header: 'Schemat Rozwoju',
-  //     melee: 0,
-  //     ranged: 0,
-  //     sturdiness: 0,
-  //     endurance: 0,
-  //     agility: 0,
-  //     intelligence: 0,
-  //     willPower: 0,
-  //     refinement: 0,
-  //   },
-  //   {
-  //     id: 3,
-  //     header: 'Aktualna',
-  //     melee: 0,
-  //     ranged: 0,
-  //     sturdiness: 0,
-  //     endurance: 0,
-  //     agility: 0,
-  //     intelligence: 0,
-  //     willPower: 0,
-  //     refinement: 0,
-  //   },
-  // ];
-
-  // const secondaryAttributes = [
-  //   {
-  //     id: 1,
-  //     header: 'Początkowa',
-  //     attacks: 0,
-  //     wounds: 0,
-  //     strength: 0,
-  //     stamina: 0,
-  //     speed: 0,
-  //     magic: 0,
-  //     insanity: 0,
-  //     fate: 0,
-  //   },
-  //   {
-  //     id: 2,
-  //     header: 'Schemat Rozwoju',
-  //     attacks: 0,
-  //     wounds: 0,
-  //     strength: 0,
-  //     stamina: 0,
-  //     speed: 0,
-  //     magic: 0,
-  //     insanity: 0,
-  //     fate: 0,
-  //   },
-  //   {
-  //     id: 3,
-  //     header: 'Aktualna',
-  //     attacks: 0,
-  //     wounds: 0,
-  //     strength: 0,
-  //     stamina: 0,
-  //     speed: 0,
-  //     magic: 0,
-  //     insanity: 0,
-  //     fate: 0,
-  //   },
-  // ];
-
   return {
     heroInfo,
     heroBio,
@@ -434,4 +251,233 @@ export const getHeroData = (hero: Hero) => {
     mainAttributes,
     secondaryAttributes,
   };
+};
+
+export const getHeroFromHeroData = (id: number, heroData: HeroData) => {
+  const heroInfo = {
+    name: heroData.heroInfo?.find((info) => info.label === 'name')?.value || '',
+    race: heroData.heroInfo?.find((info) => info.label === 'race')?.value || '',
+    previousProfession:
+      heroData.heroInfo?.find((info) => info.label === 'previousProfession')
+        ?.value || '',
+    currentProfession:
+      heroData.heroInfo?.find((info) => info.label === 'currentProfession')
+        ?.value || '',
+  };
+
+  const heroBio = {
+    age: !isNaN(
+      Number(heroData.heroBio?.find((info) => info.label === 'age')?.value)
+    )
+      ? Number(heroData.heroBio?.find((info) => info.label === 'age')?.value)
+      : 0,
+    gender: String(
+      heroData.heroBio?.find((info) => info.label === 'gender')?.value || ''
+    ),
+    eyeColor: String(
+      heroData.heroBio?.find((info) => info.label === 'eyeColor')?.value || ''
+    ),
+    hairColor: String(
+      heroData.heroBio?.find((info) => info.label === 'hairColor')?.value || ''
+    ),
+    weight: !isNaN(
+      Number(heroData.heroBio?.find((info) => info.label === 'weight')?.value)
+    )
+      ? Number(heroData.heroBio?.find((info) => info.label === 'weight')?.value)
+      : 0,
+    height: !isNaN(
+      Number(heroData.heroBio?.find((info) => info.label === 'height')?.value)
+    )
+      ? Number(heroData.heroBio?.find((info) => info.label === 'height')?.value)
+      : 0,
+    starSign: String(
+      heroData.heroBio?.find((info) => info.label === 'starSign')?.value || ''
+    ),
+    siblings: String(
+      heroData.heroBio?.find((info) => info.label === 'siblings')?.value || ''
+    ),
+    birthPlace: String(
+      heroData.heroBio?.find((info) => info.label === 'birthPlace')?.value || ''
+    ),
+    specialSigns: String(
+      heroData.heroBio?.find((info) => info.label === 'specialSigns')?.value ||
+        ''
+    ),
+  };
+
+  const player = {
+    name: String(
+      heroData.player?.find((info) => info.label === 'name')?.value || ''
+    ),
+    gameMaster: String(
+      heroData.player?.find((info) => info.label === 'gameMaster')?.value || ''
+    ),
+    campaign: String(
+      heroData.player?.find((info) => info.label === 'campaign')?.value || ''
+    ),
+    campaignYear: !isNaN(
+      Number(
+        heroData.player?.find((info) => info.label === 'campaignYear')?.value
+      )
+    )
+      ? Number(
+          heroData.player?.find((info) => info.label === 'campaignYear')?.value
+        )
+      : 0,
+  };
+
+  const expPoints = {
+    currentPoints:
+      heroData.expPoints?.find((info) => info.label === 'currentPoints')
+        ?.value || 0,
+    allPoints:
+      heroData.expPoints?.find((info) => info.label === 'allPoints')?.value ||
+      0,
+  };
+
+  const fightMovement = {
+    movement:
+      heroData.fightMovement?.find((info) => info.label === 'movement')
+        ?.value || 0,
+    charge:
+      heroData.fightMovement?.find((info) => info.label === 'charge')?.value ||
+      0,
+    run:
+      heroData.fightMovement?.find((info) => info.label === 'run')?.value || 0,
+  };
+
+  const simpleArmor = {
+    name: String(
+      heroData.simpleArmor?.find((info) => info.label === 'name')?.value || ''
+    ),
+    type: String(
+      heroData.simpleArmor?.find((info) => info.label === 'type')?.value || ''
+    ),
+    healthPoints: !isNaN(
+      Number(
+        heroData.simpleArmor?.find((info) => info.label === 'healthPoints')
+          ?.value
+      )
+    )
+      ? Number(
+          heroData.simpleArmor?.find((info) => info.label === 'healthPoints')
+            ?.value
+        )
+      : 0,
+  };
+
+  const gold = {
+    gold: heroData.gold?.find((info) => info.label === 'gold')?.value || 0,
+    silver: heroData.gold?.find((info) => info.label === 'silver')?.value || 0,
+    copper: heroData.gold?.find((info) => info.label === 'copper')?.value || 0,
+  };
+
+  const abilities = (heroData.abilities || []).map((ability) => ({
+    ability: ability?.ability || '',
+    description: ability?.desc || '',
+  }));
+
+  const advancedArmor = (heroData.advancedArmor || []).map((armor) => ({
+    type: armor?.type || '',
+    weight: armor?.weight || 0,
+    location: armor?.location || '',
+    healthPoints: armor?.hp || 0,
+  }));
+
+  const equipment = (heroData.equipment || []).map((item) => ({
+    item: item?.item || '',
+    weight: item?.weight || 0,
+    description: item?.desc || '',
+  }));
+
+  const skills = (heroData.skills || []).map((skill) => ({
+    skill: String(skill?.skill || ''),
+    bought: skill?.bought || true,
+    plus10: skill?.plus10 || false,
+    plus20: skill?.plus20 || false,
+    relatedAbilities: String(skill?.related || ''),
+  }));
+
+  const weapons = (heroData.weapons || []).map((weapon) => ({
+    name: String(weapon.weapon || ''),
+    weight: !isNaN(Number(weapon.weight)) ? Number(weapon.weight) : 0,
+    category: String(weapon.category || ''),
+    strength: !isNaN(Number(weapon.power)) ? Number(weapon.power) : 0,
+    range: !isNaN(Number(weapon.range)) ? Number(weapon.range) : 0,
+    reload: String(weapon.reload || ''),
+    attributes: String(weapon.traits || ''),
+  }));
+
+  const mainAttributes = heroData.mainAttributes?.reduce(
+    (acc: Record<string, any>, attr) => {
+      Object.keys(attr).forEach((key) => {
+        if (key !== 'id' && key !== 'header') {
+          if (!acc[key]) {
+            acc[key] = {
+              starterMain: 0,
+              devMain: 0,
+              currentMain: 0,
+            };
+          }
+          if (attr.header === 'Początkowa') {
+            acc[key]!.starterMain = (attr as Record<string, any>)[key];
+          } else if (attr.header === 'Schemat Rozwoju') {
+            acc[key]!.devMain = (attr as Record<string, any>)[key];
+          } else if (attr.header === 'Aktualna') {
+            acc[key]!.currentMain = (attr as Record<string, any>)[key];
+          }
+        }
+      });
+      return acc;
+    },
+    {}
+  );
+
+  const secondaryAttributes = heroData.secondaryAttributes?.reduce(
+    (acc: Record<string, any>, attr) => {
+      Object.keys(attr).forEach((key) => {
+        if (key !== 'id' && key !== 'header') {
+          if (!acc[key]) {
+            acc[key] = {
+              starterMain: 0,
+              devMain: 0,
+              currentMain: 0,
+            };
+          }
+          if (attr.header === 'Początkowa') {
+            acc[key]!.starterMain = (attr as Record<string, any>)[key];
+          } else if (attr.header === 'Schemat Rozwoju') {
+            acc[key]!.devMain = (attr as Record<string, any>)[key];
+          } else if (attr.header === 'Aktualna') {
+            acc[key]!.currentMain = (attr as Record<string, any>)[key];
+          }
+        }
+      });
+      return acc;
+    },
+    {}
+  );
+
+  const hero: Hero = {
+    id,
+    heroInfo,
+    heroBio,
+    player,
+    expPoints,
+    fightMovement,
+    simpleArmor,
+    gold,
+    attributes: [
+      ...Object.values(mainAttributes || []),
+      ...Object.values(secondaryAttributes || []),
+    ],
+    abilities,
+    advancedArmor,
+    equipment,
+    skills,
+    weapons,
+  };
+
+  console.log(hero);
+  return hero;
 };

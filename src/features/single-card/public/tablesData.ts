@@ -1,10 +1,10 @@
-export const heroInputs = [
+export const heroInputsLabels = [
   'Imię',
   'Rasa',
   'Poprzednia profesja',
   'Obecna profesja',
-]
-export const appearance = [
+];
+export const appearanceLabels = [
   'Wiek',
   'Płeć',
   'Kolor oczu',
@@ -15,13 +15,13 @@ export const appearance = [
   'Rodzeństwo',
   'Miejsce urodzenia',
   'Znaki szczególne',
-]
-export const player = ['Imię', 'Mistrz Gry', 'Kampania', 'Rok kampanii']
-export const expPoints = ['Obecne', 'Razem']
-export const movementInFight = ['Ruch/odwrót', 'Szarża', 'Bieg']
-export const simpleArmor = ['Nazwa', 'Typ pancerza', 'Punkty zbroi']
-export const gold = [
+];
+export const playerLabels = ['Imię', 'Mistrz Gry', 'Kampania', 'Rok kampanii'];
+export const expPointsLabels = ['Obecne', 'Razem'];
+export const movementInFightLabels = ['Ruch/odwrót', 'Szarża', 'Bieg'];
+export const simpleArmorLabels = ['Nazwa', 'Typ pancerza', 'Punkty zbroi'];
+export const goldLabels = [
   'Złote korony (zk)',
   'Srebrne szylingi (s)',
   'Mosiężne pensy (p)',
-]
+];

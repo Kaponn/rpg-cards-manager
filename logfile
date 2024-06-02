@@ -1,0 +1,26 @@
+2024-05-27 18:09:25.316 CEST [1577] LOG:  starting PostgreSQL 15.5 (Homebrew) on x86_64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2024-05-27 18:09:25.328 CEST [1577] LOG:  listening on IPv6 address "::1", port 5432
+2024-05-27 18:09:25.328 CEST [1577] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-05-27 18:09:25.332 CEST [1577] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-05-27 18:09:25.508 CEST [1580] LOG:  database system was shut down at 2024-04-22 17:48:07 CEST
+2024-05-27 18:09:25.524 CEST [1577] LOG:  database system is ready to accept connections
+2024-05-27 18:14:25.498 CEST [1578] LOG:  checkpoint starting: time
+2024-05-27 18:14:25.514 CEST [1578] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.001 s, total=0.017 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2024-05-27 18:17:20.705 CEST [1761] FATAL:  role "postgres" does not exist
+2024-05-27 18:17:27.574 CEST [1765] FATAL:  role "postgres" does not exist
+2024-05-27 18:44:25.528 CEST [1578] LOG:  checkpoint starting: time
+2024-05-27 18:44:25.975 CEST [1578] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.427 s, sync=0.002 s, total=0.454 s; sync files=5, longest=0.001 s, average=0.001 s; distance=18 kB, estimate=18 kB
+2024-05-27 18:54:25.952 CEST [1578] LOG:  checkpoint starting: time
+2024-05-27 18:54:26.373 CEST [1578] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.411 s, sync=0.002 s, total=0.422 s; sync files=5, longest=0.001 s, average=0.001 s; distance=26 kB, estimate=26 kB
+2024-05-27 18:59:25.372 CEST [1578] LOG:  checkpoint starting: time
+2024-05-27 18:59:25.787 CEST [1578] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.408 s, sync=0.001 s, total=0.415 s; sync files=5, longest=0.001 s, average=0.001 s; distance=22 kB, estimate=25 kB
+2024-05-27 19:04:25.789 CEST [1578] LOG:  checkpoint starting: time
+2024-05-27 19:04:28.014 CEST [1578] LOG:  checkpoint complete: wrote 22 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.211 s, sync=0.003 s, total=2.229 s; sync files=15, longest=0.001 s, average=0.001 s; distance=84 kB, estimate=84 kB
+2024-05-27 19:44:25.184 CEST [1578] LOG:  checkpoint starting: time
+2024-05-27 19:44:26.973 CEST [1578] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.778 s, sync=0.003 s, total=1.790 s; sync files=13, longest=0.001 s, average=0.001 s; distance=78 kB, estimate=83 kB
+2024-05-28 16:31:12.079 CEST [1577] LOG:  received smart shutdown request
+2024-05-28 16:31:12.080 CEST [1577] LOG:  background worker "logical replication launcher" (PID 1583) exited with exit code 1
+2024-05-28 16:31:12.080 CEST [1578] LOG:  shutting down
+2024-05-28 16:31:12.082 CEST [1578] LOG:  checkpoint starting: shutdown immediate
+2024-05-28 16:31:12.091 CEST [1578] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.011 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=75 kB
+2024-05-28 16:31:12.095 CEST [1577] LOG:  database system is shut down

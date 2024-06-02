@@ -1,11 +1,11 @@
-interface HeroInfo {
+export interface HeroInfo {
   name: string;
   race: string;
   previousProfession: string;
   currentProfession: string;
 }
 
-interface HeroBio {
+export interface HeroBio {
   age: number;
   gender: string;
   eyeColor: string;
@@ -18,50 +18,50 @@ interface HeroBio {
   specialSigns: string;
 }
 
-interface Player {
+export interface Player {
   name: string;
   gameMaster: string;
   campaign: string;
   campaignYear: number;
 }
 
-interface ExpPoints {
+export interface ExpPoints {
   currentPoints: number;
   allPoints: number;
 }
 
-interface FightMovement {
+export interface FightMovement {
   movement: number;
   charge: number;
   run: number;
 }
 
-interface SimpleArmor {
+export interface SimpleArmor {
   name: string;
   type: string;
   healthPoints: number;
 }
 
-interface Gold {
+export interface Gold {
   gold: number;
   silver: number;
   copper: number;
 }
 
-interface Attributes {
-  starterMain: string;
+export interface Attributes {
+  starterMain: number;
   devMain: number;
   currentMain: number;
 }
 
-interface AdvancedArmor {
+export interface AdvancedArmor {
   type: string;
   weight: number;
   location: string;
   healthPoints: number;
 }
 
-interface Weapons {
+export interface Weapons {
   name: string;
   weight: number;
   category: string;
@@ -71,12 +71,12 @@ interface Weapons {
   attributes: string;
 }
 
-interface Abilities {
+export interface Abilities {
   ability: string;
   description: string;
 }
 
-interface Skills {
+export interface Skills {
   skill: string;
   bought: boolean;
   plus10: boolean;
@@ -84,7 +84,7 @@ interface Skills {
   relatedAbilities: string;
 }
 
-interface Equipment {
+export interface Equipment {
   item: string;
   weight: number;
   description: string;

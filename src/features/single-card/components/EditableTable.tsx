@@ -19,16 +19,13 @@ import {
   GridRowModel,
   GridRowEditStopReasons,
 } from '@mui/x-data-grid';
-import {
-  randomId,
-} from '@mui/x-data-grid-generator';
-
-
+import { randomId } from '@mui/x-data-grid-generator';
+import { useEffect } from 'react';
 
 interface EditToolbarProps {
   setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
   setRowModesModel: (
-    newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
+    newModel: (oldModel: GridRowModesModel) => GridRowModesModel
   ) => void;
 }
 
@@ -53,12 +50,27 @@ function EditToolbar(props: EditToolbarProps) {
   );
 }
 
-export default function EditableTable(props: { columns: GridColDef[], initialRows: GridRowsProp, header: String }) {
+export default function EditableTable(props: {
+  columns: GridColDef[];
+  initialRows: GridRowsProp;
+  header: string;
+  onRowsChange: (rows: GridRowsProp) => void;
+}) {
   const [rows, setRows] = React.useState(props.initialRows);
-  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({});
-  let finalColumns = props.columns
+  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
+    {}
+  );
 
-  const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {
+  useEffect(() => {
+    props.onRowsChange(rows);
+  }, [props, rows]);
+
+  let finalColumns = props.columns;
+
+  const handleRowEditStop: GridEventListener<'rowEditStop'> = (
+    params,
+    event
+  ) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
       event.defaultMuiPrevented = true;
     }
@@ -70,10 +82,13 @@ export default function EditableTable(props: { columns: GridColDef[], initialRow
 
   const handleSaveClick = (id: GridRowId) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+
+    console.log(rows);
   };
 
   const handleDeleteClick = (id: GridRowId) => () => {
-    setRows(rows.filter((row) => row.id !== id));
+    const updatedRows = rows.filter((row) => row.id !== id);
+    setRows(updatedRows);
   };
 
   const handleCancelClick = (id: GridRowId) => () => {
@@ -98,52 +113,55 @@ export default function EditableTable(props: { columns: GridColDef[], initialRow
     setRowModesModel(newRowModesModel);
   };
 
-  finalColumns = [...props.columns, {
-    field: 'actions',
-    type: 'actions',
-    headerName: 'Akcje',
-    width: 100,
-    cellClassName: 'actions',
-    getActions: ({ id }) => {
-      const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+  finalColumns = [
+    ...props.columns,
+    {
+      field: 'actions',
+      type: 'actions',
+      headerName: 'Akcje',
+      width: 100,
+      cellClassName: 'actions',
+      getActions: ({ id }) => {
+        const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
 
-      if (isInEditMode) {
+        if (isInEditMode) {
+          return [
+            <GridActionsCellItem
+              icon={<SaveIcon />}
+              label="Save"
+              sx={{
+                color: 'primary.main',
+              }}
+              onClick={handleSaveClick(id)}
+            />,
+            <GridActionsCellItem
+              icon={<CancelIcon />}
+              label="Cancel"
+              className="textPrimary"
+              onClick={handleCancelClick(id)}
+              color="inherit"
+            />,
+          ];
+        }
+
         return [
           <GridActionsCellItem
-            icon={<SaveIcon />}
-            label="Save"
-            sx={{
-              color: 'primary.main',
-            }}
-            onClick={handleSaveClick(id)}
+            icon={<EditIcon />}
+            label="Edit"
+            className="textPrimary"
+            onClick={handleEditClick(id)}
+            color="inherit"
           />,
           <GridActionsCellItem
-            icon={<CancelIcon />}
-            label="Cancel"
-            className="textPrimary"
-            onClick={handleCancelClick(id)}
+            icon={<DeleteIcon />}
+            label="Delete"
+            onClick={handleDeleteClick(id)}
             color="inherit"
           />,
         ];
-      }
-
-      return [
-        <GridActionsCellItem
-          icon={<EditIcon />}
-          label="Edit"
-          className="textPrimary"
-          onClick={handleEditClick(id)}
-          color="inherit"
-        />,
-        <GridActionsCellItem
-          icon={<DeleteIcon />}
-          label="Delete"
-          onClick={handleDeleteClick(id)}
-          color="inherit"
-        />,
-      ];
+      },
     },
-  }]
+  ];
 
   return (
     <Box

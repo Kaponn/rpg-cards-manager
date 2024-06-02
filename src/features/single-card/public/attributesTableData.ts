@@ -1,4 +1,4 @@
-import { GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
 export const mainColumns: GridColDef[] = [
   { field: 'header', headerName: 'Cechy główne', width: 150 },
