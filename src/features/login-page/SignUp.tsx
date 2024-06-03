@@ -11,12 +11,7 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from './helpers/authFunctions';
-
-enum Role {
-  GAME_MASTER,
-  PLAYER,
-}
+import { Role, registerUser } from './helpers/authFunctions';
 
 export const SignUp = () => {
   const [values, setValues] = useState({
@@ -24,6 +19,7 @@ export const SignUp = () => {
     username: '',
     password: '',
     role: Role.PLAYER,
+    teamName: '',
   });
 
   const navigate = useNavigate();
@@ -33,12 +29,16 @@ export const SignUp = () => {
     currentTarget: HTMLFormElement | undefined;
   }) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    console.log(values);
     try {
-      await loginUser({
-        email: data.get('email'),
-        password: data.get('password'),
+      await registerUser({
+        email: values.email,
+        username: values.username,
+        password: values.password,
+        role: values.role,
+        teamName: values.teamName,
       });
+      console.log('dupa2');
     } catch (e) {
       console.error(e);
     }
@@ -111,6 +111,24 @@ export const SignUp = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+          />
+          <TextField
+            value={values.teamName}
+            onChange={(e) => {
+              setValues({
+                ...values,
+                teamName: e.target.value,
+              });
+            }}
+            margin="normal"
+            variant="standard"
+            required
+            fullWidth
+            id="teamName"
+            label="Nazwa Drużyny"
+            name="teamName"
+            autoComplete="teamName"
+            autoFocus
           />
           <FormControlLabel
             control={

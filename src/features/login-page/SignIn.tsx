@@ -27,8 +27,8 @@ export const SignIn = () => {
     const data = new FormData(e.currentTarget);
     try {
       await loginUser({
-        email: data.get('email'),
-        password: data.get('password'),
+        email: data.get('email') as string,
+        password: data.get('password') as string,
       });
     } catch (e) {
       console.error(e);

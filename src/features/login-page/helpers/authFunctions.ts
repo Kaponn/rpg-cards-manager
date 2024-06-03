@@ -1,11 +1,24 @@
 import axios from 'axios';
 
-interface AuthData {
-  email: FormDataEntryValue | null;
-  password: FormDataEntryValue | null;
+export enum Role {
+  PLAYER = 'PLAYER',
+  GAME_MASTER = 'GAME_MASTER',
 }
 
-export const registerUser = async (data: AuthData) => {
+interface LoginData {
+  email: FormDataEntryValue;
+  password: FormDataEntryValue;
+}
+
+interface RegisterData {
+  email: FormDataEntryValue;
+  username: FormDataEntryValue;
+  password: FormDataEntryValue;
+  role: FormDataEntryValue;
+  teamName: FormDataEntryValue;
+}
+
+export const registerUser = async (data: RegisterData) => {
   try {
     await axios.post('http://localhost:8080/register', data);
   } catch (e) {
@@ -13,7 +26,7 @@ export const registerUser = async (data: AuthData) => {
   }
 };
 
-export const loginUser = async (data: AuthData) => {
+export const loginUser = async (data: LoginData) => {
   try {
     await axios.post('http://localhost:8080/login', data);
   } catch (e) {

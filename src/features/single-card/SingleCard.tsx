@@ -23,6 +23,7 @@ import {
   goldLabels,
 } from './public/tablesData';
 import { mainColumns, secondaryColumns } from './public/attributesTableData';
+import { ComponentsChecklist } from './components/ComponentsChecklist';
 
 type ParamTypes = {
   [key: string]: string;
@@ -33,6 +34,23 @@ export const SingleCard = () => {
   const { id } = useParams<ParamTypes>();
   const [hero, setHero] = useState<Hero | null>(null);
   const [heroData, setHeroData] = useState<HeroData | null>(null);
+  const {
+    checklistJsx,
+    showAbilities,
+    showAdvancedArmor,
+    showEquipment,
+    showExpPoints,
+    showFightMovement,
+    showGold,
+    showHeroBio,
+    showHeroInfo,
+    showMainAttributes,
+    showPlayer,
+    showSecondaryAttributes,
+    showSimpleArmor,
+    showSkills,
+    showWeapons,
+  } = ComponentsChecklist();
 
   const handleDataChange = (
     value: string,
@@ -379,135 +397,164 @@ export const SingleCard = () => {
           Powrót
         </Button>
       </Grid>
+      {checklistJsx}
       <Grid container spacing={2}>
-        <Grid item>
-          <DataBox
-            header="Bohater"
-            inputs={heroInputs}
-            numOfColumns={1}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'heroInfo', index)
-            }
-          />
-        </Grid>
-        <Grid item>
-          <DataBox
-            header="Opis bohatera"
-            inputs={appearance}
-            numOfColumns={3}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'heroBio', index)
-            }
-          />
-        </Grid>
-        <Grid item>
-          <DataBox
-            header="Gracz"
-            inputs={player}
-            numOfColumns={1}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'player', index)
-            }
-          />
-        </Grid>
-        <Grid item>
-          <DataBox
-            header="Punkty Doświadczenia"
-            inputs={expPoints}
-            numOfColumns={1}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'expPoints', index)
-            }
-          />
-        </Grid>
-        <Grid item>
-          <DataBox
-            header="Ruch w walce"
-            inputs={movementInFight}
-            numOfColumns={1}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'fightMovement', index)
-            }
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={mainColumns}
-            initialRows={mainAttributesRows}
-            header={'Cechy główne'}
-            onRowsChange={(rows) => handleRowsChange(rows, 'mainAttributes')}
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={secondaryColumns}
-            initialRows={secondaryAttributesRows}
-            header={'Cechy poboczne'}
-            onRowsChange={(rows) =>
-              handleRowsChange(rows, 'secondaryAttributes')
-            }
-          />
-        </Grid>
-        <Grid item>
-          <DataBox
-            header="Opancerzenie proste"
-            inputs={simpleArmor}
-            numOfColumns={1}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'simpleArmor', index)
-            }
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={armorColumns}
-            initialRows={advancedArmorRows}
-            header={'Opancerzenie złożone'}
-            onRowsChange={(rows) => handleRowsChange(rows, 'advancedArmor')}
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={weaponsColumns}
-            initialRows={weaponsRows}
-            header={'Bronie'}
-            onRowsChange={(rows) => handleRowsChange(rows, 'weapons')}
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={abilitiesColumns}
-            initialRows={abilitiesRows}
-            header={'Zdolności'}
-            onRowsChange={(rows) => handleRowsChange(rows, 'abilities')}
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={skillsColumns}
-            initialRows={skillsRows}
-            header={'Umiejętności'}
-            onRowsChange={(rows) => handleRowsChange(rows, 'skills')}
-          />
-        </Grid>
-        <Grid item>
-          <EditableTable
-            columns={equipmentColumns}
-            initialRows={equipmentRows}
-            header={'Wyposażenie'}
-            onRowsChange={(rows) => handleRowsChange(rows, 'equipment')}
-          />
-        </Grid>
-        <Grid item>
-          <DataBox
-            header="Pieniądze"
-            inputs={gold}
-            numOfColumns={1}
-            handleChange={(value, label, index) =>
-              handleDataChange(value, label, 'gold', index)
-            }
-          />
-        </Grid>
+        {showHeroInfo && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Bohater"
+              inputs={heroInputs}
+              numOfColumns={1}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'heroInfo', index)
+              }
+            />
+          </Grid>
+        )}
+        {showHeroBio && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Opis bohatera"
+              inputs={appearance}
+              numOfColumns={3}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'heroBio', index)
+              }
+            />
+          </Grid>
+        )}
+        {showPlayer && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Gracz"
+              inputs={player}
+              numOfColumns={1}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'player', index)
+              }
+            />
+          </Grid>
+        )}
+        {showExpPoints && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Punkty Doświadczenia"
+              inputs={expPoints}
+              numOfColumns={1}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'expPoints', index)
+              }
+            />
+          </Grid>
+        )}
+        {showFightMovement && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Ruch w walce"
+              inputs={movementInFight}
+              numOfColumns={1}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'fightMovement', index)
+              }
+            />
+          </Grid>
+        )}
+        {showMainAttributes && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={mainColumns}
+              initialRows={mainAttributesRows}
+              header={'Cechy główne'}
+              onRowsChange={(rows) => handleRowsChange(rows, 'mainAttributes')}
+            />
+          </Grid>
+        )}
+        {showSecondaryAttributes && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={secondaryColumns}
+              initialRows={secondaryAttributesRows}
+              header={'Cechy poboczne'}
+              onRowsChange={(rows) =>
+                handleRowsChange(rows, 'secondaryAttributes')
+              }
+            />
+          </Grid>
+        )}
+        {showSimpleArmor && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Opancerzenie proste"
+              inputs={simpleArmor}
+              numOfColumns={1}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'simpleArmor', index)
+              }
+            />
+          </Grid>
+        )}
+        {showAdvancedArmor && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={armorColumns}
+              initialRows={advancedArmorRows}
+              header={'Opancerzenie złożone'}
+              onRowsChange={(rows) => handleRowsChange(rows, 'advancedArmor')}
+            />
+          </Grid>
+        )}
+        {showWeapons && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={weaponsColumns}
+              initialRows={weaponsRows}
+              header={'Bronie'}
+              onRowsChange={(rows) => handleRowsChange(rows, 'weapons')}
+            />
+          </Grid>
+        )}
+        {showAbilities && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={abilitiesColumns}
+              initialRows={abilitiesRows}
+              header={'Zdolności'}
+              onRowsChange={(rows) => handleRowsChange(rows, 'abilities')}
+            />
+          </Grid>
+        )}
+        {showSkills && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={skillsColumns}
+              initialRows={skillsRows}
+              header={'Umiejętności'}
+              onRowsChange={(rows) => handleRowsChange(rows, 'skills')}
+            />
+          </Grid>
+        )}
+        {showEquipment && (
+          <Grid item xs={12} sm={6} md={4}>
+            <EditableTable
+              columns={equipmentColumns}
+              initialRows={equipmentRows}
+              header={'Wyposażenie'}
+              onRowsChange={(rows) => handleRowsChange(rows, 'equipment')}
+            />
+          </Grid>
+        )}
+        {showGold && (
+          <Grid item xs={12} sm={6} md={4}>
+            <DataBox
+              header="Pieniądze"
+              inputs={gold}
+              numOfColumns={1}
+              handleChange={(value, label, index) =>
+                handleDataChange(value, label, 'gold', index)
+              }
+            />
+          </Grid>
+        )}
       </Grid>
       <Grid container justifyContent="flex-end">
         {id && heroData && <SaveButton id={parseInt(id)} heroData={heroData} />}
