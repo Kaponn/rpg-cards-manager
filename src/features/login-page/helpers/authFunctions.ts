@@ -20,7 +20,7 @@ interface RegisterData {
 
 export const registerUser = async (data: RegisterData) => {
   try {
-    await axios.post('http://localhost:8080/register', data);
+    await axios.post('http://localhost:8080/api/users/register', data);
   } catch (e) {
     console.error(e);
   }
@@ -28,7 +28,7 @@ export const registerUser = async (data: RegisterData) => {
 
 export const loginUser = async (data: LoginData) => {
   try {
-    await axios.post('http://localhost:8080/login', data);
+    await axios.post('http://localhost:8080/api/users/login', data);
   } catch (e) {
     console.error(e);
   }

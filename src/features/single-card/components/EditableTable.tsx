@@ -63,7 +63,7 @@ export default function EditableTable(props: {
 
   useEffect(() => {
     props.onRowsChange(rows);
-  }, [props, rows]);
+  });
 
   let finalColumns = props.columns;
 

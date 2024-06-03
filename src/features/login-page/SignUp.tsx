@@ -38,7 +38,6 @@ export const SignUp = () => {
         role: values.role,
         teamName: values.teamName,
       });
-      console.log('dupa2');
     } catch (e) {
       console.error(e);
     }

@@ -2,18 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Hero } from '../hero/Hero';
 import { Button } from '@mui/material';
+import NewHeroButton from './components/NewHeroButton';
 
 const AllCards = () => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchHeroes = async () => {
+  const fetchHeroes = async () => {
+    try {
       const response = await fetch('http://localhost:8080/api/heroes');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       setHeroes(data);
-    };
+    } catch (error) {
+      console.error('Failed to fetch heroes:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchHeroes();
   }, []);
 
@@ -36,6 +44,7 @@ const AllCards = () => {
           </Button>
         </div>
       ))}
+      <NewHeroButton />
     </div>
   );
 };
